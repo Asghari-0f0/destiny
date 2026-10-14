@@ -1,60 +1,137 @@
-//TODO: Step 6 - import the story.dart file into this file.
+import 'story.dart';
 
-//TODO: Step 5 - Create a new class called StoryBrain.
+class StoryBrain {
+  final List<Story> _storyData = [
+    // ۱. داستان اول (شروع بازی)
+    Story(
+      storyTitle:
+          'پرنده‌ها بالای سرتان آواز می‌خوانند و نسیم خنکی برگ‌های درختان را تکان می‌دهد. تو و دوست صمیمی‌ات خسته از پیاده‌روی طولانی، ناگهان متوجه می‌شوید که درختان انبوه جنگل دور و برتان را گرفته‌اند و هیچ راه برگشتی را نمی‌شناسید! خورشید آهسته در حال پنهان شدن پشت کوه‌هاست و سایه‌های بلندی روی زمین می‌افتد. در همین لحظه تاریک و روشن، صدای ناله ضعیفی از پشت بوته‌های تمشک به گوش می‌رسد. وقتی بوته‌ها را کنار می‌زنید، یک چوچه خرس بسیار کوچک، پشمالو و زخمی را می‌بینید که با چشمان بارانی و لرزان به شما نگاه می‌کند و کمک می‌خواهد. کمی آن‌طرف‌تر یک جاده خاکی و خلوت دیده می‌شود.',
+      choice1: 'کمک به خرس',
+      choice2: 'فرار به جاده',
+    ),
 
-//TODO: Step 7 - Uncomment the lines below to include storyData as a private property in StoryBrain. Hint: You might need to change something in story.dart to make this work.
-//   List<Story> _storyData = [
-//     Story(
-//         storyTitle:
-//             'موتر شما در جاده ای پر پیچ و خم، در میانۀ ناکجاآباد تایر ترکانده و ساحه خارج از محدوده ی پوشش شبکه هاست. شما تصمیم میگیرید که از موتر های دیگر درخواست لیفت کنید. یک وانت زنگ زده به ایستگاهی در کنار شما می‌پیچد. مردی با کلاه لبه‌ پهن و چشمان بی‌روح در مسافر را به روی شما باز می‌کند و می‌پرسد: «میخواهی جایی برسانمت، پسر؟».',
-//         choice1: 'سوار میشوم، ممنون بابت کمک!',
-//         choice2: 'بهتره ابتدا پرسان شود که آیا او یک قاتل است؟'),
-//     Story(
-//         storyTitle:
-//             'راننده با تکان دادن سر جواب بلی داد، بدون اینکه از سوال ناراحت شود.',
-//         choice1: 'حد اقل بخاطر صادق بودنش سوار میشوم.',
-//         choice2: 'یک لحظه، بلدم تایر موتر را عوض کنم.'),
-//     Story(
-//         storyTitle:
-//             'هنگامی که شما شروع به حرکت می کنید، غریبه شروع به صحبت در مورد رابطه خود با مادرش می کند. لحظه به لحظه عصبانی تر و عصبانی تر می شود. او از شما می خواهد که جعبه دستکش را باز کنید. در داخل یک چاقوی خونین، دو انگشت بریده شده و یک نوار کاست از التون جان پیدا می کنید. راننده دستش را به سمت جعبه دستکش دراز میکند.',
-//         choice1: 'من از التون جان خوشم می آید! نوار کاست را به او میدهید.',
-//         choice2: 'یا من یا او! چاقو را برمیدارید و به او ضربه میزنید.'),
-//     Story(
-//         storyTitle:
-//             'چی؟ عجب آدم محافظه کاری! \nآیا می‌دانستید تصادفات رانندگی دومین عامل مرگ و میر تصادفی برای اکثر گروه‌های سنی بزرگسالان است؟',
-//         choice1: 'شروع مجدد',
-//         choice2: ''),
-//     Story(
-//         storyTitle:
-//             'ضربه زدن با چاقو به راننده، هنگام رانندگی، درست مثل شکستن نرده ی محافظیست که از افتادن شما روی صخره های دندانه دار جلوگیری میکند. ',
-//         choice1: 'شروع مجدد',
-//         choice2: ''),
-//     Story(
-//         storyTitle:
-//             'شما با قاتل پیوند می خورید در حالی که شعر "امشب می توانید عشق را احساس کنید" را می خوانید. او شما را در شهر بعدی پیاده می کند. قبل از رفتن او از شما می پرسد که آیا مکان خوبی برای تخلیه اجساد می شناسید؟ شما پاسخ می دهید: «اسکله را امتحان کنید».',
-//         choice1: 'شروع مجدد',
-//         choice2: '')
-//   ];
+    // ۲. مسیر کمک به خرس
+    Story(
+      storyTitle:
+          'با قدم‌های آهسته به چوچه خرس نزدیک می‌شوید. حیوانک بیچاره ناله عمیقی می‌کشد؛ پای کوچک او در یک تله آهنی سخت و زنگ‌زده‌ی صیادان بی‌رحم گیر کرده و کمی زخمی شده است. دستانت را جلو می‌بری تا تله را باز کنی که ناگهان زمین زیر پایتان شروع به لرزیدن می‌کند! صدای غرش وحشتناک و سهمگینی تمام جنگل را پر می‌کند. خرس مادر، بزرگ و غول‌پیکر، با چشمانی خشمگین و عصبانی از میان درختان بیرون می‌پرد و با سرعت به سمت شما می‌دوید چون فکر می‌کند می‌خواهید به بچه‌اش آسیب بزنید!',
+      choice1: 'باز کردن تله',
+      choice2: 'رها کردن و فرار',
+    ),
 
-//TODO: Step 23 - Use the storyNumber property inside getStory(), getChoice1() and getChoice2() so that it gets the updated story and choices rather than always just the first (0th) one.
+    // ۳. مسیر شجاعت و باز کردن تله
+    Story(
+      storyTitle:
+          'ترس را کنار می‌گذاری، با تمام قدرت آهن تله را باز می‌کنی و پای چوچه خرس را آزاد می‌کنی. خرس مادر با ابهت تمام به بالای سرتان می‌رسد و سایه بزرگش روی شما می‌افتد. شما چشمانتان را از ترس می‌بندید، اما هیچ اتفاقی نمی‌افتد! وقتی چشم باز می‌کنید، می‌بینید خرس مادر آرام شده، چوچه‌اش را نوازش می‌کند و سپس به سمت شما می‌آید. او به آرامی دست شما را بو می‌کند و با مهربانی سر بزرگش را تکان می‌دهد، انگار می‌خواهد بگوید که به او اعتماد کنید و برای نجات از این جنگل به دنبالش بروید.',
+      choice1: 'اعتماد به خرس',
+      choice2: 'رفتن به تنهایی',
+    ),
 
-//TODO: Step 8 - Create a method called getStory() that returns the first storyTitle from _storyData.
+    // ۴. مسیر فرار به جاده خاکی
+    Story(
+      storyTitle:
+          'شما از ترس با تمام توان به سمت جاده خاکی دویدید، اما جاده کاملاً خالی، خلوت و متروکه بود. شب تاریک و سیاه مثل چادر روی جنگل پهن شد و سوز سرمای شدیدی وزیدن گرفت. حالا شما دو دوست، وسط یک جاده ناشناخته، بدون سرپناه و آتش، روی زمین سرد و نمناک نشسته‌اید. در همین حین، چراغ‌های یک موتر قدیمی از دور پیدا می‌شود که به سمت شما می‌آید و صدای عجیبی دارد.',
+      choice1: 'درخواست کمک از موتر',
+      choice2: 'پنهان شدن در بوته‌ها',
+    ),
 
-//TODO: Step 11 - Create a method called getChoice1() that returns the text for the first choice1 from _storyData.
+    // ۵. سوار شدن به موتر ناشناس (پایان بد)
+    Story(
+      storyTitle:
+          'موتر متوقف می‌شود. راننده مردی عجیب با لباس‌های کثیف است که لبخند ترسناکی می‌زند. شما بدون فکر کردن سوار می‌شوید. او حرکت می‌کند اما به جای خارج شدن از جنگل، به سمت اعماق تاریکی و یک معدن متروکه می‌رود! شما درهای موتر را قفل می‌بینید و متوجه می‌شوید که گرفتار صیادان غیرقانونی جنگل شده‌اید. سفر شما در اینجا با یک اشتباه به پایان رسید.',
+      choice1: 'شروع مجدد',
+      choice2: '',
+    ),
 
-//TODO: Step 12 - Create a method called getChoice2() that returns the text for the first choice2 from _storyData.
+    // ۶. پنهان شدن از موتر و ادامه مسیر
+    Story(
+      storyTitle:
+          'شما پشت بوته‌های بزرگ قایم می‌شوید. موتر مشکوک از کنار شما رد می‌شود و به نظر می‌رسد صیادان جنگل بودند. بعد از رفتن موتر، یک طوطی رنگارنگ و بسیار زیبا روی شاخه درخت بالای سرتان می‌نشیند. طوطی با صدای بلند می‌گوید: «دنبال من بیایید! راه خروج! دنبال من بیایید!» و پرواز می‌کند.',
+      choice1: 'دنبال کردن طوطی',
+      choice2: 'نادیده گرفتن طوطی',
+    ),
 
-//TODO: Step 16 - Create a property called storyNumber which starts with a value of 0. This will be used to track which story the user is currently viewing.
+    // ۷. دنبال کردن طوطی راهنما
+    Story(
+      storyTitle:
+          'طوطی مهربان شما را از میان یک مسیر مخفی و پر از گل‌های وحشی عبور می‌دهد. بعد از چند دقیقه پیاده‌روی، به یک ایستگاه بزرگ محیط‌بانی می‌رسید که چراغ‌هایش روشن است و محیط‌بانان مشغول صحبت هستند. شما نجات پیدا کردید! طوطی روی شانه شما می‌نشیند و به خاطر هوش بالایتان تشویق‌تان می‌کند.',
+      choice1: 'شروع مجدد',
+      choice2: '',
+    ),
 
-//TODO: Step 25 - Change the storyNumber property into a private property so that only story_brain.dart has access to it. You can do this by right clicking on the name (storyNumber) and selecting Refactor -> Rename to make the change across all the places where it's used.
+    // ۸. نادیده گرفتن طوطی و حرکت در تاریکی (پایان بد)
+    Story(
+      storyTitle:
+          'شما به حرف طوطی گوش ندادید و در دل تاریکی مطلق جنگل شروع به قدم زدن کردید. درختان بلند مانع رسیدن نور ماه می‌شدند. ناگهان پای دوستت روی یک سنگ لغزنده و خیس می‌خورد و هر دو به داخل یک رودخانه خروشان، عمیق و بسیار سرد پرتاب می‌شوید! جریان آب بسیار تند است و شما را با خود می‌برد. طبیعت در عین زیبایی، بدون راهنما می‌تواند خطرناک باشد.',
+      choice1: 'شروع مجدد',
+      choice2: '',
+    ),
 
-//TODO: Step 17 - Create a method called nextStory(), it should not have any outputs but it should have 1 input called choiceNumber which will be the choice number (int) made by the user.
+    // ۹. رفتن به تنهایی بعد از نجات خرس (پایان بد)
+    Story(
+      storyTitle:
+          'شما از خرس‌ها تشکر کردید اما تصمیم گرفتید خودتان راه را پیدا کنید. خرس مادر با ناراحتی سرش را تکان داد و رفت. بعد از ساعتی پیاده‌روی، در محاصره گله‌ای از گرگ‌های گرسنه قرار می‌گیرید! چشمان درخشان آن‌ها در تاریکی می‌درخشد. شما هیچ سلاح یا آتشی برای دفاع از خود ندارید و کاش با خرس‌های قدرتمند همراه می‌شدید.',
+      choice1: 'شروع مجدد',
+      choice2: '',
+    ),
 
-//TODO: Step 20 - Download the story plan here: https://drive.google.com/uc?export=download&id=1KU6EghkO9Hf2hRM0756xFHgNaZyGCou3
+    // ۱۰. اعتماد به خرس‌ها و رسیدن به کلبه (پایان خوش)
+    Story(
+      storyTitle:
+          'شما به خانواده خرس‌ها اعتماد کردید و در میان تاریکی جنگل پشت سر آن‌ها حرکت کردید. خرس مادر با هیکل بزرگش راه را باز می‌کرد تا اینکه به یک کلبه چوبی بسیار زیبا و روشن رسیدید که از دودکشش دود گرمی خارج می‌شد. یک جنگل‌بان پیر و مهربان با دیدن شما در را باز کرد، برایتان چای داغ و کلوچه آورد و با بیسیم به خانواده‌های نگران شما خبر داد. شما طعم واقعی شجاعت و یک دوستی بی‌نظیر را تجربه کردید!',
+      choice1: 'شروع مجدد',
+      choice2: '',
+    ),
 
-//TODO: Step 21 - Using the story plan, update nextStory to change the storyNumber depending on the choice made by the user.
-//When user is on story0 and they chose choice1, the story should progress to story2.
+    // ۱۱. رها کردن خرس و فرار از دست خرس مادر
+    Story(
+      storyTitle:
+          'شما چوچه خرس را رها کردید و با تمام توان دویدید. خرس مادر با دیدن بچه‌اش که در تله است، ایستاد تا او را نجات دهد و شما توانستید جان سالم به در ببرید. اما حالا در یک دشت پر از مه غلیظ قرار دارید. جلوتر که می‌روید، یک اسب سفید و وحشی بسیار زیبا را می‌بینید که آرام ایستاده و به شما نگاه می‌کند.',
+      choice1: 'سوار شدن بر اسب',
+      choice2: 'پیاده رفتن در مه',
+    ),
 
-// TODO: Step 22 - In nextStory() if the storyNumber is equal to 3 or 4 or 5, that means it's the end of the game and it should call a method called restart() that resets the storyNumber to 0.
+    // ۱۲. سوار شدن بر اسب سفید (پایان خوش)
+    Story(
+      storyTitle:
+          'شما با احتیاط جلو می‌روید و اسب مهربان اجازه می‌دهد سوارش شوید. اسب سفید با سرعت باد شروع به دویدن می‌کند، از میان مه غلیظ می‌گذرد و شما را دقیقاً به پشت دروازه روستایتان می‌رساند! تمام مردم روستا با دیدن شما خوشحال می‌شوند. شما با کمک یک اسب جادویی و زیبا به خانه برگشتید.',
+      choice1: 'شروع مجدد',
+      choice2: '',
+    ),
+  ];
 
-//TODO: Step 27 - Create a method called buttonShouldBeVisible() which checks to see if storyNumber is 0 or 1 or 2 (when both buttons should show choices) and return true if that is the case, else it should return false.
+  int _storyNumber = 0;
+
+  String getStory() {
+    return _storyData[_storyNumber].storyTitle;
+  }
+
+  String getChoice1() {
+    return _storyData[_storyNumber].choice1;
+  }
+
+  String getChoice2() {
+    return _storyData[_storyNumber].choice2;
+  }
+
+  void nextStory(int choiceNumber) {
+    if (_storyNumber == 0) {
+      _storyNumber = choiceNumber == 1 ? 2 : 1;
+    } else if (_storyNumber == 1) {
+      _storyNumber = choiceNumber == 1 ? 2 : 3;
+    } else if (_storyNumber == 2) {
+      _storyNumber = choiceNumber == 1 ? 5 : 4;
+    }
+
+    if (_storyNumber == 3 || _storyNumber == 4 || _storyNumber == 5) {
+      restart();
+    }
+  }
+
+  void restart() {
+    _storyNumber = 0;
+  }
+
+  bool buttonShouldBeVisible() {
+    return _storyNumber == 0 || _storyNumber == 1 || _storyNumber == 2;
+  }
+}
